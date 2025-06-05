@@ -1,15 +1,450 @@
-<html>
-<head>
-<title>Service Manual</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-</head>
-<frameset rows="75,1*" frameborder="no" border="0" framespacing="0"> 
-  <frame name="headFrame" scrolling="no" noresize src="contents/head.html" frameborder="NO" >
-  <frame name="bodyFrame" scrolling="yes" noresize src="contents/body.html">
-</frameset>
-<noframes>
-<body bgcolor="#FFFFFF">
-</body>
-</noframes> 
-</html>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"94ae4f360e2edc6c","version":"2025.5.0","r":1,"token":"6a81a6fd24ac4950b9f4c54fc14383da","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+<HTML>
+
+<HEAD>
+  <META name="robots" content="noindex, nofollow">
+  <META http-equiv="cache-control" content="no-cache" />
+
+  <TITLE>BtSsm User Manual</TITLE>
+
+  <LINK rel="shortcut icon" href="favicon.ico"/>
+
+  <STYLE type="text/css">
+    body { color:#dddddd; background-color:black; font-family: "Trebuchet MS", Helvetica, sans-serif; }
+
+    div  {
+     -webkit-border-radius:2px;
+		 -moz-border-radius:2px;
+		 -o-border-radius:2px;
+		 -ms-border-radius:2px;
+		 -khtml-border-radius:2px;
+		 border-radius:2px;
+		}
+
+		a       {text-decoration: underline;}
+	  a:hover {text-decoration: underline;}
+  </STYLE>
+</HEAD>
+
+
+<BODY link='#ffffff' vlink='#ffffff' alink='#ffffff'>
+
+<BR>
+<H1>BtSsm User Manual</H1>
+<BR>
+
+
+<H2>Table of Contents</H2>
+<table>
+  <tr>
+    <td style="padding:0.5rem;vertical-align:top;">
+			<table border=1 style="border-collapse:collapse;">
+				<tr><th>Essentials</th></tr>
+				<tr><td style="padding:0.5rem;"><a href="#installation">Installation</a></td></tr>
+				<tr><td style="padding:0.5rem;"><a href="#basicfunctionality">Basic Functionality</a></td></tr>
+				<tr><td style="padding:0.5rem;"><a href="#fieldchooser">Field Chooser</a></td></tr>
+				<tr><td style="padding:0.5rem;"><a href="#logging">Logging</a></td></tr>
+				<tr><td style="padding:0.5rem;"><a href="#codes">Codes</a></td></tr>
+				<tr><td style="padding:0.5rem;"><a href="#lv">Learned Values</a></td></tr>
+				<tr><td style="padding:0.5rem;"><a href="#settings">Settings</a></td></tr>
+				<tr><td style="padding:0.5rem;"><a href="#carbutton">Using the Car button</a></td></tr>
+			</table>
+		</td>
+
+		<td style="padding:0.5rem;vertical-align:top;">
+			<table border=1 style="border-collapse:collapse;">
+				<tr><th>Advanced</th></tr>
+				<tr><td style="padding:0.5rem;"><a href="#customfields">Custom Fields</a></td></tr>
+				<tr><td style="padding:0.5rem;"><a href="#lookuptables">Lookup Tables</a></td></tr>
+				<tr><td style="padding:0.5rem;"><a href="#externalsensors">External Sensors</a></td></tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<BR>
+<BR>
+<BR>
+
+
+
+<a name="installation"></a><H2>INSTALLATION</H2>
+<UL>
+  <li><b>Adapter:</b> Plug your <a href='https://www.btssm.com/?page=hardware'>supported adapter</a> into your car's OBD2 port. This D-shaped connector is often located near the driver's left knee, under the dash<BR><A href='http://www.btssm.com/?page=buy'><IMG src='adapter2.jpg' height='125px'></A></li>
+<UL><BR>
+</UL>
+  <li><b>BtSsm app:</b> If you haven't already done so, using your Android device, <A href='https://www.btssm.com/?page=download'>download</A> and install it.<BR><BR></li>
+</UL>
+Open the BtSsm app for the first time. Press "Settings", then "ECU interface", and choose the appropriate adapter.<BR>
+If the key is on, the app should discover your ECU in a few seconds. If not, and you are using a bluetooth adapter, you may need to pair it with your Android device first, then try running the app again.<BR>
+<BR>
+When the app connects and sees your vehicle for the first time, it will prompt you for a new Car Profile name. Enter a suitable name to identify your car, and press OK. It should then display some basic real-time information, including 2 gauges for Air Fuel Ratio, and Boost (psi).<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+
+
+<a name="basicfunctionality"></a><H2>BASIC FUNCTIONALITY</H2>
+Now that the app is communicating with your vehicle, let's explore some core features<BR>
+<BR>
+<IMG src='app.png' height='119px'><BR>
+<BR>
+<b>Analog Gauges</b> display a field with a sweeping needle on a scale<BR>
+<BR>
+<b>Digital Gauges</b> display a field value along with smaller min and max values (tap gauge to reset min/max)<BR>
+To <i>move</i> a gauge, "long press" it (about 1/2 second), then drag it around to reposition it to your liking<BR>
+To <i>resize</i> a gauge, simply touch two fingers inside the gauge and "pinch" or "zoom" it<BR>
+Using the above methods, you can arrange your gauges as you desire<BR>
+<BR>
+<b>Text values</b><BR>
+In addition to the default gauges, you'll notice a short list of text fields displaying in real-time. There are 3 columns:<BR>
+ "Min" - the minimum values observed. You can long-press this column to reset them<BR>
+ "Now" - the current values<BR>
+ "Max" - the maximum values observed. You can long-press this column to reset them<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+
+<a name="fieldchooser"></a><H2>FIELD CHOOSER</H2>
+So you've probably noticed that when the app first started up, you had a couple of gauges and a few text fields displayed. Would you like to add or change these? If so, press the menu button, and press "Fields". This will display the Field Chooser, which is a scrollable list of fields available for your vehicle.<BR>
+<BR>
+<IMG src='scrnshots/scrnshot34fieldChooser.png' height='132px'><BR>
+<BR>
+The leftmost column is the Description of the field. You can tap the name to change the gauge type to Analog or Digital<BR>
+<BR>
+Following that are 4 checkbox columns, which are as follows:<BR>
+ "Monitor" - check this to add the field to the list of real-time text fields<BR>
+ "Log" - check this to include the field when you engage logging (more details on the Logging feature will follow)<BR>
+ "Gauge" - check this to display the field as a gauge that can then be moved/sized<BR>
+ "Alert" - check this to create an alert for this field when it's value goes above or below a specific value (more details on the Alert feature will follow)<BR>
+<BR>
+There is one more column on the rightmost side. It is a "handle" that allows you drag a field up or down, changing the order of the displayed fields, as well as the order of any log files created.<BR>
+<BR>
+Press the back button to return to the main display.<BR>
+<BR>
+<BR>
+<BR>
+
+
+<a name="logging"></a><H2>LOGGING</H2>
+Log files can be very useful. The sampling rate using BtSsm is high enough to allow for a nice view of what your ECU and engine are doing.<BR>
+<BR>
+Some uses for logging:<BR>
+-visualize sensor values and events in a chronological linear fashion<BR>
+-email raw logs to your tuner so they can adjust your tune accordingly - even if you are the tuner :)<BR>
+-seeing a/f ratio in logs allows a tuner to tweak your ecu to achieve desired fueling<BR>
+-seeing knock events in logs allows a tuner to tweak your ecu to achieve desired timing, and prevent damage<BR>
+-seeing left/right VVT positions can determine if they are running in sync<BR>
+-there are countless other things that can be learned from log files<BR>
+<BR>
+Logging can be accomplished by any of these 3 triggers:
+<UL>
+<li>Press the red "record" button in the action bar (press again to stop logging)</li>
+<li>Turn on your car's rear defroster (this must be enabled Settings/Log on rear defrost button). Turn off rear defroster to stop logging.</li>
+<li>Semi-hidden feature: <i>Long-press the record button</i> to toggle a special WOT auto-log option. When enabled, it will start logging whenever you floor the throttle, and stop after you release it</li>
+</UL>
+Once you have completed a logging session, there are different things you can do with that log. Press Menu/Logs to see a list of your logs. The most recent log file will always be at the top. Tap its <i>name</i> (not the checkbox). At this point you will have a menu of actions to choose from for this specific log file. Here is a brief description:
+<UL>
+<li>Dyno: This will plot an estimated dyno chart for your WOT run, plotting both HP and TQ. The log must include Throttle Plate, RPM, and Speed in order to render the chart<br><IMG src='scrnshots/scrnshot16dyno.png' height='180px'></li>
+<li>Graph: All of your logged fields will be available to view in a graph. You can select which fields with the checkboxes on the left. If the graph is wider than the display, then you can drag left/right to pan the graph so you can see the whole log. Tap anywhere on the graph, a vertical line will appear, and for that point in time all of the field values will be displayed<br><IMG src='scrnshots/scrnshot19wotGraph.png' height='180px'></li>
+<li>Open raw log: The log CSV file will attempt to be opened for viewing. Results may vary depending on your android device. Some will display it in a nice spreadsheet like format<br><IMG src='scrnshots/scrnshot14log.png' height='123px'></li>
+<li>Share: Provided you have an internet connection, you can email your raw log file this way. This is the best way to send the log to your home computer, your tuner, etc.</li>
+<li>Delete: Log not needed? You can delete it this way</li>
+</UL>
+
+To wrap up the subject of logging, there is one more feature that allows *multiple* log files to be Shared or Deleted. When you select Menu/Logs, the list of log files has checkboxes next to each file. If you check one or more of them, you can then press the Share or Delete button to perform that action on all selected log files. This is a convenient way to send multiple logs to your tuner. Or if you'd like to clean house, this is a much easier way to delete a bunch of logs.<BR>
+<BR>
+<BR>
+
+
+<a name="codes"></a><H2>CODES</H2>
+Is your check engine light on? You can get the trouble codes by pressing Menu/Codes. If any code are found, the will be listed along with descriptions.<BR>
+<BR>
+If desired, you can press "Share" to email the results.<BR>
+<BR>
+You can also clear the codes by pressing "Reset ECU". Warning: this will do more than just clear your codes. It will reset the ECU's learned values for fuel, timing, etc, and your IAM will default as well. This being said, the result is similar to disconnecting your battery terminal briefly.<BR>
+<BR>
+<BR>
+
+
+<a name="lv"></a><H2>LV (LEARNED VALUES)</H2>
+This is a great way to get a "big picture" of your engine's health. Press LV to get the following info:<BR>
+<BR>
+<IMG src='scrnshots/scrnshot26LV.png' height='270px'><BR>
+
+<b>IAM</b><br>
+You want a value of 1.000 for 32 bit ECUs, or 16 for 16 bit ECUs, which indicates that your ECU is basically happy, and is generally able to compensate for fuel and timing adjustments as necessary.<BR>
+If you see a lower value, one of 2 things has probably happened:<BR>
+1. Your ECU was reset recently, or the battery was dead or disconnected. If this is the case then the low IAM is probably temporary and not cause for concern. A relatively short drive <i>should</i> bring it back up to its max value.<BR>
+2. Your ECU had to intervene with its normal tuning, and resort to a rather coarse solution. This is generally a bad indicator, and it's cause should be researched immediately before possible engine damage results. Often it means excessive knock was detected, and the ECU has pulled timing back globally to try to ease the situation, but the problems can still occur.<BR>
+<BR>
+Does the hidden possibility of a fallen IAM cause you to lose sleep? You can use BtSsm to set an alert if it falls below 1.000 (32 bit) or 16 (16 bit). This way, in the unlikely event that your IAM drops, you'll know about it right away - possibly before your check engine light has been lit. See the FIELD CHOOSER section for more info on alerts.<BR>
+<BR>
+
+<b>Fuel Correction (%)</b><br>
+Your ECU has a few "cells" it uses to adjust fuel more/less for longer term. Your ECU will then spend less time/effort searching for correct fueling in real time, since it has "adapted" to changing conditions such as engine wear, smallish vacuum leaks, drifting sensors, bad gas, etc. It uses the MAF value in grams/second, divided into a few ranges.<BR>
+These values should ideally be close to 0%. However it is normal to see them go up or a down a bit. Generally if a value strays more than 5 or 6%, then you might start to be concerned about the cause. There can be many causes for this: a few include (best to worst order) vacuum leak, bad injector, bad coil, valve clearance out of spec, broken ring lands. Those are just examples, there can be other reasons as well.<BR>
+<BR>
+
+<b>Timing Correction (degrees)</b><br>
+This table has many more cells than the fuel correction table. It is divided into RPM rows and Load (grams/revolution) columns.<BR>
+These values should ideally be 0. However it is normal to see a few small negative values here or there, which means that the ECU has pulled timing back that number of degrees for that RPM/Load area. If you see values consistently less than -2 or -3 degrees, this should probably be researched because that means the ECU is hearing knock, and pulling timing to compensate.<BR>
+Sometimes your tuner will pull timing in these areas to clear up any negative numbers in your LV (a log can be helpful here), if it's related to your tune that is being dialed in.<BR>
+However, sometimes you can have a "clean" LV for quite some time, then suddenly negative numbers start showing up. This can indicate the possibility that something is going wrong with your engine, and should be researched. However, there *can* be "false" alarms for this, such as: a bad tank of gas/wrong octane, rattling heat shield or other piece on/near engine, lightweight flywheel, etc.<BR>
+Too much timing pull in this table can result in the ECU taking more serious action by dropping the IAM value (see above), which is effectively like lowering ALL of the cells in this table. If your IAM has been dropped, it will then reset the table cells all to zero, and eventually you may start to see a few POSITIVE numbers as the ECU tries to tease the engine to see if it knocks, and if it can add back enough positive numbers without hearing any knocks, it will raise the IAM, clear this table, and proceed from there.<BR>
+<BR>
+There are buttons below your LV display:<BR>
+-Share: like other areas of BtSsm, you can email/share the results. In this case, it will be a PNG image<BR>
+-List: Each of the LVs that you create will be automatically saved with the date/time in the filename. Clicking the List button will show all of the LV filenames currently saved. You can view any of them by pressing the file name itself.<BR>
+<BR>
+As with the log list, there is a feature that allows *multiple* LV files to be Shared or Deleted. When the list of LV files has checkboxes next to each file, if you check one or more of them, you can then press the Share or Delete button to perform that action on all selected LV files.<BR>
+<BR>
+<BR>
+<BR>
+
+
+
+<a name="settings"></a><H2>SETTINGS</H2>
+Some of the settings have already been mentioned, but this section will cover each one.<BR>
+<BR>
+<BR>
+<BR>
+
+
+<b>--- Interface Settings ---</b><br>
+<b>ECU Interface</b><BR>
+BtSsm can connect to your ECU using several different supported adapters. Please see our <a href='?page=hardware'>hardware page</a> to see various features and prerequisites!<br>
+Choose one:
+<UL>
+<li>OBDLink LX/MX, bluetooth, K-line (up to 2014)</li>
+<li>OBDLink LX/MX, bluetooth, CAN (2007+, ecu patch reqd)</li>
+<li>OP2.0 or KKL, usb+otg, K-line (up to 2014)</li>
+<li>OP2.0, usb+otg, CAN (2007+, ecu patch reqd)</li>
+</UL>
+
+<b>Bluetooth auto-enable</b><br>
+When checked, BtSsm will automatically notice whether your device has Bluetooth enabled or not, turn it on if necessary, then when you press your BACK button to exit the app, it will restore the previous state of Bluetooth. Here are some examples:<BR>
+<UL>
+<li>Bluetooth is off. BtSsm is started, and it enables Bluetooth automatically. When you exit BtSsm using the BACK button, it will automatically disable Bluetooth since that's the way it was.</li>
+<li>Bluetooth is on. BtSsm is started, and since Bluetooth is already on it just works. When you exit BtSsm, it leaves Bluetooth on, since that's the way it was.</li>
+</UL>
+Note: When this feature is NOT enabled, Bluetooth must be enabled prior to starting BtSsm, or it will not be able to connect to a bluetooth OBD adapter.<BR>
+<BR>
+
+<b>USB connection launches app</b><br>
+This is checked by default, and only matters if you use a USB/OTG adapter. If you do, you can decide whether the app is automatically launched when the adapter is connected. Usually this is preferred, but some users would rather not.<BR>
+<BR>
+<BR>
+<BR>
+
+
+
+<b>--- ALERT SETTINGS ---</b><BR>
+<b>Alert Type</b><BR>
+If you set up any alerts for your Fields, you can control how that alert is presented. By default, "Gauge color + Sound" is selected. This will turn the gauge red, and play a sound. Tapping the gauge will clear the color if desired. The other options are "None", "Gauge color", and "Sound".<BR>
+<BR>
+
+<b>Sound minimum duration (ms)</b><BR>
+You can change the minimum duration that the alert sound will play.<br>
+<BR>
+
+<b>Sound maximum duration (ms)</b><BR>
+You can change the maximum duration that the alert sound will play. It will stop if it exceeds that period of time.<br>
+<BR>
+<BR>
+<BR>
+
+
+
+<b>--- DISPLAY SETTINGS ---</b><BR>
+
+<b>Colors</b><BR>
+You can customize certain interface colors here<br>
+<BR>
+
+<b>Gauge glow effect</b><BR>
+The gauges have a slight glow around the numbers, and the rim of the gauge. There is also a slight shadow on the needle hub. However, some devices do not support this feature, and if you have one of these devices, an odd looking pink rectangle surrounds each gauge. If this happens, you can simply uncheck this option - the gauge will still have a nice appearance without the subtle glow effect, but the odd pink rectangles will go away.<BR>
+<BR>
+
+<b>Gauge snap-to-grid</b><BR>
+Choices include None, Fine, Medium, and Coarse. When dragging or resizing the gauges, they will move in steps (you choose the previously mentioned size), so that they line up with each other better. You can select "None", and put the gauges just where you want them, but it becomes difficult to arrange them evenly in the same size and areas.<BR>
+<BR>
+
+<b>Hide ActionBar</b><BR>
+At the top of BtSsm, an "action bar" normally resides there, which has menu options to record logs, LV, Car, Settings, etc. However, some users prefer not to see this ActionBar all of the time, so this feature can be enabled to automatically hide it. Touching anywhere on the screen will cause the ActionBar to automatically reappear for a few seconds.<BR>
+<BR>
+
+<b>Show min values</b><BR>
+You may recall that fields can display in a list of text values. Checking this option includes a "Min" column of the minimum values detected in that section. Remember that you can long-press that column to reset it any time.<BR>
+
+<b>Show max values</b><BR>
+Same as above, but this is a column of maximum values detected.<BR>
+<BR>
+<BR>
+<BR>
+
+
+
+<b>--- GENERAL SETTINGS ---</b><BR>
+
+<b>Hands-free LV</b><BR>
+This feature was requested by a user that displays BtSsm on a non-touch screen navigation screen. Creating LV's was impossible while setup this way (everything else was too, but this was the most important feature to him). So... you can alternately trigger an LV by having your key-on, engine-off, and floor the throttle. It will pull an LV and display it. To dismiss it, floor the throttle again.<BR>
+<BR>
+
+<b>Knock Snapshot</b><BR>
+One of the default features of BtSsm is to watch for knock events, and notify you if/when they occur with a yellow triangle in the ActionBar. If you see this yellow triangle, tapping it will show you a dialog with all of your selected field values at the time of the knock event. This can be helpful for "catching" what was going on at the knock event, such as RPM and Load, which could be very helpful to a tuner to dial out some over-agressive timing. Without this, typically one would need to be logging at the time of the knock. If you'd rather not be bothered with this, you can uncheck this feature.<BR>
+<BR>
+
+<b>Knock Snapshot sensitivity</b><BR>
+If you find that you are getting the warning triangle for knock detected too often, and are confident that it's acceptable, you can reduce the sensitivity so that it will take more knocking to produce the warning. Since FKC is a negative value, enter 0 (the default) or LOWER. The lower the number is, the less sensitive the warning will be. For example, entering -2 will reduce the sensitivity, and FKC will need to fall below -2 to trigger a warning notification<BR>
+<BR>
+
+<b>Log on rear defrost button</b><BR>
+Enabling this allows another way to start/stop logging - via the rear defrost button. You'll see the screen background turn blue whenever logging is engaged. However, especially in cold weather, you might want to use your rear defrost for... well, defrosting. In this case you might not want it to cause logging, so uncheck this feature.<BR>
+<BR>
+
+<b>Submit error reports</b><BR>
+We strive to make BtSsm a great product. *If* it ever crashes, this feature, if enabled, will post to our servers the error itself, the date/time, and your ECU model number. No actual personal info is ever transmitted.<BR>
+<BR>
+<BR>
+<BR>
+
+
+
+<b>--- POWER SETTINGS ---</b><BR>
+
+<b>Keep Screen On Time (seconds)</b><BR>
+BtSsm will force the screen to stay on when communicating with ECU. After communication stops (turn off ignition key for example), this value will tell it how many seconds to wait before allowing android to start its usual screen timeout. Enter 0 to force screen on always while app is running.<BR>
+<BR>
+
+<b>Wake up Android device automatically</b><BR>
+If BtSsm was running, then communication with the ECU stopped (car turned off for example) and eventually the screen turned off automatically, if BtSsm is still running in the background when ECU communication resumes (car turned on) it will "wake up" the android device<BR>
+<BR>
+
+<b>Close app timer (minutes)</b><BR>
+If you'd like to save a little power if your android device is hardwaired and stais powered on always, you can specify a number of minutes after which the app will close itself. However, BtSsm will not be able to resume automatically at this point.<BR>
+<BR>
+<BR>
+<BR>
+
+
+
+<b>--- BACKUP SETTINGS ---</b><BR>
+<b>Backup/Restore</b><BR>
+You may have invested some time setting up fields, laying out gauges, etc. To preserve this info, you can press the "Backup" selection, and it will save this info in a file with the date/time. At a later point, if you ever want/need to restore them, you can click "Restore" and select from the list of previous backups that you made. Note that this will ERASE all of your fields and gauges, then restore them to their backed up state.<BR>
+<BR>
+<BR>
+<BR>
+
+
+
+<b>--- VEHICLE-SPECIFIC SETTINGS ---</b> This section, at the bottom of the Settings, will show only if you are connected to your vehicle (or manually selected a vehicle offline using the "Car" button). This section includes:<BR>
+<BR>
+
+<b>Gauge Style</b><BR>
+Choose the style/theme of your gauges from a predefined list<BR>
+<BR>
+
+<b>Speed correction</b><BR>
+If your displayed speed is off (presumably both your speedometer and BtSsm) due to factors such as non-stock tire outer diameters, non-stock gearing, etc, you can tweak what BtSsm shows. It is a percentage, so by default it is 0%, but you can enter a positive or negative value to get closer to actual.<BR>
+<BR>
+<BR>
+<BR>
+
+
+
+<a name="carbutton"></a><H2>CAR BUTTON</H2>
+In most cases, BtSsm will automatically choose the profile that you previously created that matches your ECU ID.<BR>
+<BR>
+You can use BtSsm on multiple vehicles. Swap it into a different vehicle, enter a new vehicle profile name, and you're ready to go. If you then return BtSsm to your original vehicle, it will automatically find its profile. If you have multiple profiles for one ECU ID, you can press the Car button, and choose the desired profile.<BR>
+<BR>
+Fun fact: you can use BtSsm "offline", say from your couch. Start BtSsm, press Car, and select your profile. You can then select fields, drag/resize gauges, etc. So, as long as you have a car profile created, you don't need to be sitting in your car to make changes like this.<BR>
+
+
+<br><br><hr><br>
+<H2>ADVANCED TOPICS</H2>
+to be added: alerts, external sensors<br>
+<br>
+
+<a name="customfields"></a><H3>Custom Fields</H3>
+A number of standard fields are included with BtSsm for monitoring and logging purposes. However, there are many other SSM values that can be accessed, which have been documented online. You can define your own custom fields to access this data.<br>
+<br>
+<IMG src='manual/addCustomFld.png'><br>
+<br>
+^ Above is an example of a custom field being added. Here's a brief description of what you need to enter:<br>
+<OL>
+ <LI>Name: enter a description of this field that will be displayed with it. It will also appear at the top of any log files generated with this field</LI>
+ <LI>Addr (hex): enter the SSM address for your specific ECU. Many of these addresses are "generic" across most ECUs. However, many are ECU-specific. Google is your friend here.</LI>
+ <LI>Length: along with the address above, the length of this field in bytes is necessary. These are typically anywhere between 1 and 4.</LI>
+ <LI>Float: some SSM values are stored as a "float", and require this box to be checked</LI>
+ <LI>Formula: entering simply "x" gives you the raw value. But most SSM values require some sort of formula to show in certain units. This example converts to degrees F.</LI>
+ <LI>Lookup table: this example does not use a lookup table. However, if desired this is another way to render one value from another. Please see the next section "Lookup Tables" for more info.</LI>
+ <LI>Dec places: Tells BtSsm how many decimal places to display</LI>
+ <LI>Gauge min: Enter the minimum expected round value to show on a gauge</LI>
+ <LI>Gauge max: Enter the maximum expected round value to show on a gauge</LI>
+ <LI>Gauge # every: Indicates how numbers are displayed on a gauge. In this example where min=0 and max=200, this value is set to "20" so the gauge numbers will be 0, 20, 40... up to 200.</LI>
+</OL>
+
+Using "switches": Your ECU also has many switch (on/off) values that can be useful. However there are 8 switches (bits) contained at one address (byte), so how can we extract a single switch value? In the formula, you can use the "bit" function.<br>
+For example: the "Radiator fan #1" switch is bit 5 at address 000065. The formula would then be <b>bit(x,5)</b><br>
+<br>
+
+
+<a name="lookuptables"></a><H3>Lookup Tables (within Custom Fields)</H3>
+In some cases, a simple formula will not give you what you need to render meaningful values.<br>
+This is often the case when you have wired a custom sensor up that provides a 0-5V signal. The sensor manufacturer usually provides a few data points to make this possible<br>
+This signal can then be fed to BtSsm in one of two ways:<br>
+<UL>
+ <LI>A deleted TGV input (if available) so it can be displayed/logged as an SSM value like all the others</LI>
+ <LI>Optional BtSense module (currently under development) that will send several 0-5V values directly to your device running the BtSsm app</LI>
+</UL>
+
+<IMG src='manual/lookupTableSel.png'><br>
+<br>
+^ Above is an example where an AEM 150psi sensor was plumbed into the fuel line, and it's signal was wired to the driver-side deleted TGV input<br>
+<OL>
+ <LI>The Addr (hex) value of "000034" is for the left TGV input</LI>
+ <LI>The Formula "x/50" converts the TGV input value to Volts (ranging from 0 to 5)</LI>
+</OL>
+Here's where the lookup table comes in. A lookup table has already been entered that was named "aem 150psi". It will convert the 0-5V value to fuel pressure in PSI.<BR>
+In order to add that lookup table, please follow these instructions:<BR>
+<OL>
+ <LI>Tap the dropdown and select "(ADD lookup table)"</LI>
+ <LI>Enter a useful name for your lookup table. In this case it was "aem 150psi". Tap OK</LI>
+ <LI>The new lookup table will be displayed. Delete the sample data in it.</LI>
+ <LI>The format of the lookup table is the <u>Input Value</u>, <u>a space</u>, <u>and the Output Value</u>. Take the manufacturers data, and starting with the smallest value, add lines of data like this until you reach the largest value. Press OK<BR>
+     <IMG src='manual/lookupTableEdit.png'></LI>
+ <LI>Your new lookup table should now be selected in the dropdown list within the custom field. Press OK when done.</LI>
+</OL>
+That should do it! You will now have a "Fuel Pressure gauge" suitable for displaying, logging, etc. But there are many other useful sensors that can be used this way: WBO2, EGT, oil pressure, oil temp, etc!<BR>
+<BR>
+<BR>
+<BR>
+
+
+
+<a name="externalsensors"></a><H2>EXTERNAL SENSORS</H2>
+A recent Beta addition to BtSsm is the ability to reference some external sensors via a USB connection.<BR>
+<BR>
+The list of supported sensors is still short: Innovate LC2 / MTX-L AFR sensors, and AEM UEGO AFR sensor. A user reported that the Innovate SCG-1 also works.<BR>
+<BR>
+The physical connection is like this: External sensor serial output -> RS232-to-USB converter -> OTG converter -> Android device<BR>
+<BR>
+Important: when you make the above connections, Android should ask if it should be allowed to open BtSsm: Choose BtSsm and select <b>ALWAYS</b>.<BR>
+<BR>
+At this point, you can go into BtSsm, choose your vehicle profile (if offline, otherwise it will be chosen for you), press "Fields", press "Add", press "Add External Sensor".<BR>
+Device type: Select from the list of supported sensors<BR>
+Device:  Select the connected device id. This may be a bit cryptic as it is the id of the usb converter. If there are more than one, try one at a time<br>
+Name: Give your sensor a short but meaningful name. This name is what will appear in the Field Chooser, and will be the label displayed on the gauge as well as the logging field if used.<br>
+Press "Save"<BR>
+<BR>
+Go back to the main screen, and see if you now have a new gauge!<br>
+
+
+<BR>
+<BR>
+<BR>
+
+</BODY>
+</HTML>
